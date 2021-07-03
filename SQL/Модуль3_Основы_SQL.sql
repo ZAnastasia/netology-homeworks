@@ -49,8 +49,9 @@ order by "колличество покупателей";
 SELECT s1."ID магазина",
        s1."колличество покупателей",
        c2.city as "Город",
-       concat(s.first_name,' ',s.last_name) as "Фамилия и имя"
-       FROM staff s
+       concat(s2.first_name,' ',s2.last_name) as "Фамилия и имя"
+       FROM store s
+        join staff s2 on s.store_id = s2.store_id
         join address a on s.address_id = a.address_id
         join city c2 on a.city_id = c2.city_id
         join
