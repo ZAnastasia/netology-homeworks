@@ -93,7 +93,19 @@ FOREIGN KEY (language_id) REFERENCES language_AnastaciaZ (language_id);
 
 ALTER TABLE
 nationality_language_AnastaciaZ ADD CONSTRAINT nationality_language_AnastaciaZ_nationality_id_fkey
-FOREIGN KEY (nationality_id) REFERENCES nationality_AnastaciaZ (nationality_id);
+FOREIGN KEY (nationality_id) REFERENCES nationality_AnastaciaZ (nationality_id); 
+
+ALTER TABLE
+nationality_language_AnastaciaZ ADD CONSTRAINT nationality_language_pkey 
+PRIMARY KEY (nationality_id,language_id); 
+
+INSERT INTO nationality_language_AnastaciaZ (language_id, nationality_id)
+VALUES('1','1'),
+      ('2','2'),
+      ('3','3'),
+      ('4','4'),
+      ('5','5'),
+      ('1','5');
 
 
 --СОЗДАНИЕ ВТОРОЙ ТАБЛИЦЫ СО СВЯЗЯМИ
@@ -115,6 +127,18 @@ ALTER TABLE
 nationality_country_AnastaciaZ ADD CONSTRAINT nationality_country_AnastaciaZ_country_id_fkey
 FOREIGN KEY (country_id) REFERENCES country_AnastaciaZ (country_id);
 
+ALTER TABLE
+nationality_country_AnastaciaZ ADD CONSTRAINT nationality_country_pkey
+PRIMARY KEY (nationality_id,country_id); 
+
+
+INSERT INTO nationality_country_AnastaciaZ (nationality_id, country_id)
+VALUES('1','1'),
+      ('2','2'),
+      ('3','3'),
+      ('4','4'),
+      ('5','5'),
+      ('2','1');
 
 --======== ДОПОЛНИТЕЛЬНАЯ ЧАСТЬ ==============
 
